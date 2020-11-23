@@ -17,13 +17,13 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
       @media (min-width: 1950px) and (max-width:2050px) {
-    .left{margin-left:1400%}
+    .left{margin-left:1900%}
 }
 @media (min-width: 1850px) and (max-width:1950px) {
-    .left{margin-left:1300%}
+    .left{margin-left:1700%}
 }
           @media (min-width: 1750px) and (max-width:1850px) {
-    .left{margin-left:1200%}
+    .left{margin-left:1500%}
 }
           @media (min-width: 1550px) and (max-width:1750px) {
     .left{margin-left:1150%}
