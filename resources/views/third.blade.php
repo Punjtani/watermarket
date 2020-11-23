@@ -34,7 +34,7 @@
   .left{margin-left:400%} }
  @media (min-width: 440px) and (max-width:550px) {
   .left{margin-left:350%} }
- @media (min-width: 400px) and (max-width:450px) {
+ @media (min-width: 400px) and (max-width:440px) {
   .left{margin-left:320%}}
  }
  @media (min-width: 340px) and (max-width:400px) {
