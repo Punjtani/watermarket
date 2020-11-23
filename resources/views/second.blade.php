@@ -28,6 +28,12 @@
 @media (min-width: 250px) and (max-width:350px) {
         button {width:120px}
 }
+@media (min-width: 1950px) and (max-width:2050px) {
+    .left{margin-left:1400%}
+}
+@media (min-width: 1850px) and (max-width:1950px) {
+    .left{margin-left:1300%}
+}
 @media (min-width: 1750px) and (max-width:1850px) {
     .left{margin-left:1200%}
 }

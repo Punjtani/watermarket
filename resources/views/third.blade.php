@@ -16,6 +16,12 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
+      @media (min-width: 1950px) and (max-width:2050px) {
+    .left{margin-left:1400%}
+}
+@media (min-width: 1850px) and (max-width:1950px) {
+    .left{margin-left:1300%}
+}
           @media (min-width: 1750px) and (max-width:1850px) {
     .left{margin-left:1200%}
 }
