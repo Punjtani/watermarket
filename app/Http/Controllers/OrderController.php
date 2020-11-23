@@ -30,11 +30,12 @@ class OrderController extends Controller
         $statusCode = $response->getStatusCode();
         $body = $response->getBody()->getContents();
         $v=json_decode($body);
-
+     dd($v);
         $status=$v->success;
 
         if($v->success)
         {
+
             $status=$v->success;
             return view('project',['status' => $v->message]);
         }

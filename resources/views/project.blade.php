@@ -45,6 +45,7 @@
 </head>
 <body class="hold-transition sidebar-mini" style="overflow-x: hidden">
     @if ($status ?? null)
+
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button"   class="close" data-dismiss="alert"> <a  href="/project3" style="text-decoration:none ">&times;</a> </button>
         <strong>{{$status}}</strong>
