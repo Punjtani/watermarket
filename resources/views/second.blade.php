@@ -28,7 +28,7 @@
 @media (min-width: 250px) and (max-width:350px) {
         button {width:120px}
 }
-@media (min-width: 1250px) and (max-width:1800px) {
+@media (min-width: 1250px) and (max-width:1700px) {
     .left{margin-left:1250%}
 }
 @media (min-width: 1050px) and (max-width:1250px) {
