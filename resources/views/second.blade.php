@@ -28,9 +28,33 @@
 @media (min-width: 250px) and (max-width:350px) {
         button {width:120px}
 }
+@media (min-width: 1250px) and (max-width:1800px) {
+    .left{margin-left:1250%}
+}
+@media (min-width: 1050px) and (max-width:1250px) {
+  .left{margin-left:850%}}
+@media (min-width: 950px) and (max-width:1050px) {
+  .left{margin-left:700%}}
+@media (min-width: 850px) and (max-width:950px) {
+  .left{margin-left:650%}
+ }
+ @media (min-width: 750px) and (max-width:850px) {
+  .left{margin-left:550%} }
+ @media (min-width: 650px) and (max-width:750px) {
+  .left{margin-left:450%} }
+ @media (min-width: 550px) and (max-width:650px) {
+  .left{margin-left:400%} }
+ @media (min-width: 440px) and (max-width:550px) {
+  .left{margin-left:350%} }
+ @media (min-width: 400px) and (max-width:450px) {
+  .left{margin-left:320%}}
+ }
+ @media (min-width: 340px) and (max-width:400px) {
+  .left{margin-left:310%}}
+ }
    </style>
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini" style="overflow-x: hidden">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -40,11 +64,14 @@
         <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
           </li>
-      <li class="nav-item" style="margin-left:1100px">
-        <a href="#" class="nav-link flex-column">
-        <i class="fa fa-times" aria-hidden="true"> logout</i>
-        </a>
-      </li>
+          <li class="nav-item left">
+            <div class="left">
+            <a href="#" class="nav-link  flex-column">
+            <i class="fa fa-times" aria-hidden="true">
+                logout</i>
+            </a>
+            </div>
+          </li>
     </ul>
 
   </nav>

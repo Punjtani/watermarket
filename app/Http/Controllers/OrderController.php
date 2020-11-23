@@ -18,21 +18,10 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        // dd("hello");
-        // $client = new Client();
-        // $post_data = array(
-        //     'email' => $request->email,
-        //     'password' => $request->password,
-        //     'submit' => 'Login',
-        //   );
-        //   dd($post_data);
         $post_data=$request->all();
-        // dd($post_data);
           $httpClient = new GuzzleClient();
-    	// $response = $client->request('POST','http://80.209.226.8:3000/api/admin/login',[
-        //     $request->email,$request->password
-        // ]);
-        $url='http://80.209.226.8:3000/api/admin/login';
+        $url='http://mywatermarket.com:3000/api/admin/login';
+
         $response = $httpClient->request( 'POST', $url,[
         'body' => json_encode($post_data),
         'headers' => [

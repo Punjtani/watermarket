@@ -18,7 +18,7 @@
   <style>
 
 @media (min-width: 1250px) and (max-width:1800px) {
-    .left{margin-left:950%}
+    .left{margin-left:1250%}
 }
 @media (min-width: 1050px) and (max-width:1250px) {
   .left{margin-left:850%}}
