@@ -39,10 +39,10 @@
         button {width:120px}
 }
  @media (min-width: 1950px) and (max-width:2050px) {
-    .left{margin-left:1900%}
+    .left{margin-left:1800%}
 }
 @media (min-width: 1850px) and (max-width:1950px) {
-    .left{margin-left:1700%}
+    .left{margin-left:1600%}
 }
           @media (min-width: 1750px) and (max-width:1850px) {
     .left{margin-left:1500%}

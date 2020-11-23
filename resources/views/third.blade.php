@@ -17,7 +17,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
       @media (min-width: 1950px) and (max-width:2050px) {
-    .left{margin-left:1900%}
+    .left{margin-left:1800%}
 }
 @media (min-width: 1850px) and (max-width:1950px) {
     .left{margin-left:1700%}
