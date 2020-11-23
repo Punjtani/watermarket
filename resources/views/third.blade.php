@@ -38,7 +38,10 @@
   .left{margin-left:320%}}
  }
  @media (min-width: 340px) and (max-width:400px) {
-  .left{margin-left:310%}}
+  .left{margin-left:1250%}}
+ }
+ @media (min-width: 40px) and (max-width:340px) {
+  .left{margin-left:1250%}}
  }
 
   </style>
