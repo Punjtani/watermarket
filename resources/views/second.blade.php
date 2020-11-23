@@ -16,7 +16,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    <style>
-       @media (min-width: 550px) and (max-width:1900px) {
+       @media (min-width: 550px) and (max-width:1700px) {
         button {width:250px}
 }
 @media (min-width: 450px) and (max-width:550px) {
@@ -28,8 +28,14 @@
 @media (min-width: 250px) and (max-width:350px) {
         button {width:120px}
 }
-@media (min-width: 1250px) and (max-width:1700px) {
-    .left{margin-left:1250%}
+@media (min-width: 1750px) and (max-width:1850px) {
+    .left{margin-left:1200%}
+}
+          @media (min-width: 1550px) and (max-width:1750px) {
+    .left{margin-left:1150%}
+}
+      @media (min-width: 1250px) and (max-width:1550px) {
+    .left{margin-left:1100%}
 }
 @media (min-width: 1050px) and (max-width:1250px) {
   .left{margin-left:850%}}
