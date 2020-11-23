@@ -17,7 +17,16 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    <style>
 
-       @media (min-width: 550px) and (max-width:1700px) {
+@media (min-width: 1800px) and (max-width:2300px) {
+        button {width:250px}
+}
+@media (min-width: 1100px) and (max-width:1800px) {
+        button {width:250px}
+}
+@media (min-width: 800px) and (max-width:1100px) {
+        button {width:250px}
+}
+       @media (min-width: 550px) and (max-width:800px) {
         button {width:250px}
 }
 @media (min-width: 450px) and (max-width:550px) {
