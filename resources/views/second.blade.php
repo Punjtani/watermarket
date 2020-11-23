@@ -16,7 +16,7 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
    <style>
-       @media (min-width: 550px) and (max-width:1700px) {
+       @media (min-width: 550px) and (max-width:1900px) {
         button {width:250px}
 }
 @media (min-width: 450px) and (max-width:550px) {
