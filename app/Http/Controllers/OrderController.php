@@ -22,8 +22,8 @@ class OrderController extends Controller
     {
         $post_data=$request->all();
           $httpClient = new GuzzleClient();
-        $url='https://mywatermarket.com:3001/api/admin/login';
-
+        // $url='https://mywatermarket.com:3001/api/admin/login';
+        $url='http://80.209.226.8:3000/api/admin/login';
         $response = $httpClient->request( 'POST', $url,[
         'body' => json_encode($post_data),
         'headers' => [
