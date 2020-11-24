@@ -29,7 +29,6 @@ class OrderController extends Controller
     ]]);
         $statusCode = $response->getStatusCode();
         $body = $response->getBody()->getContents();
-        dd(response()->json('tokens'));
         $v=json_decode($body);
         $status=$v->success;
 
