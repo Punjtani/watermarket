@@ -90,13 +90,13 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-                <a href="project" class="nav-link">
+                <a href="home" class="nav-link">
                   <i class="nav-icon far fa fa-home text-warning" aria-hidden="true"></i>
                   <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/project2" class="nav-link">
+                <a href="/users" class="nav-link">
                     <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                   <p>Users</p>
                 </a>
@@ -108,7 +108,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/project1" class="nav-link">
+                <a href="/waterlap" class="nav-link">
                     <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
                   <p>Water Lap</p>
                 </a>

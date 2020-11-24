@@ -7,10 +7,10 @@ use App\Http\Controllers\CustomerController;
 use GuzzleHttp\Client;
 
 
-    Route::view('project','project');
-Route::view('project1','second');
-Route::view('project2','third');
-Route::view('project4','forgetpassword');
+Route::view('home','project');
+Route::view('waterlap','second');
+Route::view('users','third');
+Route::view('forgetpassword','forgetpassword');
 
-Route::view('project3','login')->name('mainlogin');
+Route::view('/','login')->name('mainlogin');
 

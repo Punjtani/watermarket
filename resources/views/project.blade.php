@@ -16,9 +16,17 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <style>
-
-@media (min-width: 1250px) and (max-width:1700px) {
-    .left{margin-left:1250%}
+      @media (min-width: 1850px) and (max-width:1950px) {
+    .left{margin-left:1700%}
+}
+          @media (min-width: 1750px) and (max-width:1850px) {
+    .left{margin-left:1500%}
+}
+          @media (min-width: 1550px) and (max-width:1750px) {
+    .left{margin-left:1150%}
+}
+      @media (min-width: 1250px) and (max-width:1550px) {
+    .left{margin-left:1100%}
 }
 @media (min-width: 1050px) and (max-width:1250px) {
   .left{margin-left:850%}}
@@ -89,13 +97,13 @@
 
 
           <li class="nav-item">
-            <a href="project" class="nav-link">
+            <a href="home" class="nav-link">
               <i class="nav-icon far fa fa-home text-warning" aria-hidden="true"></i>
               <p>Home</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/project2" class="nav-link">
+            <a href="/users" class="nav-link">
                 <i class="nav-icon fa fa-users" aria-hidden="true"></i>
               <p>Users</p>
             </a>
@@ -107,7 +115,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/project1" class="nav-link">
+            <a href="/waterlap" class="nav-link">
                 <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
               <p>Water Lap</p>
             </a>

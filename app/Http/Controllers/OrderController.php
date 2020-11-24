@@ -29,13 +29,12 @@ class OrderController extends Controller
     ]]);
         $statusCode = $response->getStatusCode();
         $body = $response->getBody()->getContents();
+        dd(response()->json('tokens'));
         $v=json_decode($body);
-     dd($v);
         $status=$v->success;
 
         if($v->success)
         {
-
             $status=$v->success;
             return view('project',['status' => $v->message]);
         }
