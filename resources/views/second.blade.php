@@ -108,7 +108,7 @@
 
 
               <li class="nav-item">
-                <a href="/login" class="nav-link">
+                <a href="/home" class="nav-link">
                   <i class="nav-icon far fa fa-home text-warning" aria-hidden="true"></i>
                   <p>Home</p>
                 </a>

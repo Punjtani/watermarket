@@ -57,9 +57,9 @@
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button"   class="close" data-dismiss="alert"> <a  href="/project3" style="text-decoration:none ">&times;</a> </button>
         <strong>{{$status}}</strong>
-      </div
+    </div>
     @endif
-   >
+
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
