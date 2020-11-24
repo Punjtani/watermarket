@@ -143,8 +143,6 @@ return [
          */
         // jeroennoten\laravelAdminlte\ServiceProvider::class,
         // JeroenNoten\LaravelAdminLte\ServiceProvider::class,
-        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        // Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
