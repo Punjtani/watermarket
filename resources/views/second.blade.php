@@ -85,7 +85,7 @@
           </li>
           <li class="nav-item left">
             <div class="left">
-            <a href="#" class="nav-link  flex-column">
+            <a href="/logout" class="nav-link  flex-column">
             <i class="fa fa-times" aria-hidden="true">
                 logout</i>
             </a>

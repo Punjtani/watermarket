@@ -183,3 +183,4 @@
 <script src="../../dist/js/demo.js"></script>
 </body>
 </html>
+<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views/third.blade.php ENDPATH**/ ?>

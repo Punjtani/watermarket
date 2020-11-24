@@ -42,6 +42,8 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Session\Middleware\StartSession::class,
         ],
     ];
 
@@ -53,6 +55,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'jwt.auth' => Tymon\JWTAuth\Middleware\GetUserFromToken::class,
+        'jwt.refresh' => Tymon\JWTAuth\Middleware\RefreshToken::class,
+        'auth.jwt' => \Tymon\JWTAuth\Middleware\GetUserFromToken::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,

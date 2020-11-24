@@ -6,8 +6,10 @@ use App\Models\Order;
 use GuzzleHttp\Client;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\Facades\Session;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class OrderController extends Controller
 {
@@ -20,7 +22,7 @@ class OrderController extends Controller
     {
         $post_data=$request->all();
           $httpClient = new GuzzleClient();
-        $url='http://mywatermarket.com:3000/api/admin/login';
+        $url='https://mywatermarket.com:3001/api/admin/login';
 
         $response = $httpClient->request( 'POST', $url,[
         'body' => json_encode($post_data),
@@ -30,11 +32,13 @@ class OrderController extends Controller
         $statusCode = $response->getStatusCode();
         $body = $response->getBody()->getContents();
         $v=json_decode($body);
+        // dd($v->token);
         $status=$v->success;
 
         if($v->success)
         {
             $status=$v->success;
+            session(['status'=> $status]);
             return view('project',['status' => $v->message]);
         }
         else
@@ -44,15 +48,36 @@ class OrderController extends Controller
                   return view('login',['status' => $v->message]);
         }
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function getUser(Request $request)
     {
-        //
+        JWTAuth::invalidate($request->token);
+        $this->validate($request, [
+            'token' => 'required'
+        ]);
+
+        $user = JWTAuth::authenticate($request->token);
+
+        return response()->json(['user' => $user]);
+    }
+    public function logout(Request $request)
+    {
+        $this->validate($request, [
+            'token' => 'required'
+        ]);
+
+        try {
+            JWTAuth::invalidate($request->token);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'User logged out successfully'
+            ]);
+        } catch (JWTException $exception) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, the user cannot be logged out'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
     /**

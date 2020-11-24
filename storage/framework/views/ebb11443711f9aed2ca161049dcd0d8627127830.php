@@ -53,13 +53,13 @@
   </style>
 </head>
 <body class="hold-transition sidebar-mini" style="overflow-x: hidden">
-    @if ($status ?? null)
+    <?php if($status ?? null): ?>
 
     <div class="alert alert-success alert-dismissible fade show">
         <button type="button"   class="close" data-dismiss="alert"> <a  href="/project3" style="text-decoration:none ">&times;</a> </button>
-        <strong>{{$status}}</strong>
+        <strong><?php echo e($status); ?></strong>
     </div>
-    @endif
+    <?php endif; ?>
 
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -137,45 +137,21 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    {{-- <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Legacy User Menu</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Legacy User Menu</li>
-            </ol>
-
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section> --}}
+    
 
     <!-- Main content -->
     <section class="content">
 
       <!-- Default box -->
 
-        {{-- <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div> --}}
+        
 
      <div class="container">
         <h1>Home Page</h1>
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            {{-- <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span> --}}
+            
 
             <div class="info-box-content">
               <span class="info-box-text">Total Registered User</span>
@@ -188,7 +164,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            {{-- <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span> --}}
+            
 
             <div class="info-box-content">
               <span class="info-box-text">Total Amount Credit</span>
@@ -202,7 +178,7 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            {{-- <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span> --}}
+            
 
             <div class="info-box-content">
               <span class="info-box-text">Total Order Recieved</span>
@@ -215,7 +191,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="info-box">
-            {{-- <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span> --}}
+            
 
             <div class="info-box-content">
               <span class="info-box-text">Total Product in System</span>
@@ -335,3 +311,4 @@
 <script src="../../dist/js/demo.js"></script>
 </body>
 </html>
+<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views/project.blade.php ENDPATH**/ ?>

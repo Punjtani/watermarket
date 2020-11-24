@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Api\UserLoginController;
@@ -16,9 +17,6 @@ use App\Http\Controllers\Api\UserLoginController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-   // Roles
- Route::get('userlogin',[UserLoginController::class, 'index']);
- Route::post('form', [OrderController::class,'index'])->name('form');
+
+
+
