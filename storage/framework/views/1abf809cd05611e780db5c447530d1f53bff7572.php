@@ -148,6 +148,7 @@
           <!-- Sidebar Menu -->
           <div style="margin-top:0px;padding:14px">
             <nav class="mt-2">
+                
                 <h1>Water Lap</h1>
                 <ul class="nav  nav-sidebar flex-column" data-widget="treeview" role="menu"
                  data-accordion="false" style="padding:54px";>
@@ -155,7 +156,7 @@
                        with font-awesome or any other icon font library -->
                        <a href="#" class="nav-link">
                         <button type="button" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            Image1
+                            <img src="$v->national_id">Image1
                         </button>
                       <p style="text-decoration:underline">Delete</p>
                     </a>

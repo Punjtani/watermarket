@@ -98,13 +98,13 @@
 
 
           <li class="nav-item">
-            <a href="home" class="nav-link">
+            <a href="/home" class="nav-link">
               <i class="nav-icon far fa fa-home text-warning" aria-hidden="true"></i>
               <p>Home</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/users" class="nav-link">
+            <a href="/users/14" class="nav-link">
                 <i class="nav-icon fa fa-users" aria-hidden="true"></i>
               <p>Users</p>
             </a>
@@ -116,7 +116,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/waterlap" class="nav-link">
+            <a href="/waterlap/14" class="nav-link">
                 <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
               <p>Water Lap</p>
             </a>
@@ -179,7 +179,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Total Registered User</span>
-              <span class="info-box-number">14<small>K</small></span>
+              <span class="info-box-number">{{$users[0]->buyer}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -191,8 +191,8 @@
             {{-- <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span> --}}
 
             <div class="info-box-content">
-              <span class="info-box-text">Total Amount Credit</span>
-              <span class="info-box-number">99,459</span>
+              <span class="info-box-text">Total Distributor</span>
+            <span class="info-box-number">{{$users[0]->distributor}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -242,67 +242,25 @@
                   <tr>
                     <th>Name <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
                     <th>Email <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
-                    <th>User Type <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
-                    <th>Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
+                    <th>User Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
+                    <th>Distributor Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-info">Processing</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                    <td>Samsung Smart TV</td>
-                    <td><span class="label label-warning">Pending</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                    <td>iPhone 6 Plus</td>
-                    <td><span class="label label-danger">Delivered</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                    <td>Call of Duty IV</td>
-                    <td><span class="label label-success">Shipped</span></td>
-                    <td>
-                      <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                    </td>
-                  </tr>
+                      @foreach ($users as $s )
+                      {{-- {{dd($s)}} --}}
+                      @if($s->email!=null)
+                      <tr>
+                        <td><a href="{{route('users', $s->buyer)}}">{{$s->name}}</a></td>
+                        <td>{{$s->email}}</td>
+                        <td><span class="label label-success"> {{$s->user_status}}</span></td>
+                        <td>
+                          <div class="sparkbar" data-color="#00a65a" data-height="20">{{$s->distributor_status}}</div>
+                        </td>
+                      </tr>
+                          @endif
+                      @endforeach
+
                   </tbody>
                 </table>
               </div>

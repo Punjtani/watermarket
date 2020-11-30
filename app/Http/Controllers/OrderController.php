@@ -39,7 +39,7 @@ class OrderController extends Controller
         {
             $status=$v->success;
             session(['status'=> $status]);
-            return view('project',['status' => $v->message]);
+            return redirect('/home')->with(['status' => $v->message]);
         }
         else
         {
@@ -47,6 +47,53 @@ class OrderController extends Controller
                 //   return view('login',['status' => json_encode($body)]);
                   return view('login',['status' => $v->message]);
         }
+    }
+    public function data(){
+        $httpClient = new GuzzleClient();
+        $url='http://80.209.226.8:3000/api/admin/getUsers';
+        $response = $httpClient->request( 'Get', $url,[
+        'headers' => [
+        'Content-Type'     => 'application/json',
+    ]]);
+    $body = $response->getBody()->getContents();
+       $v=json_decode($body);
+       $users=$v->users;
+    //    dd($users)
+       return view('project',compact('users'));
+    }
+    public function represent($id){
+        //  $post_data=$id;
+        $httpClient = new GuzzleClient();
+        $url='http://80.209.226.8:3000/api/admin/getDistributor';
+        $response = $httpClient->request( 'POST', $url,[
+            'form_params' => [
+                'id' =>$id
+            ],
+
+        ]);
+            $statusCode = $response->getStatusCode();
+            $body = $response->getBody()->getContents();
+            $vs=json_decode($body);
+
+            $v= $vs->distributor ;
+            return  view('third',compact('v'));
+    }
+    public function image($id){
+        //  $post_data=$id;
+        $httpClient = new GuzzleClient();
+        $url='http://80.209.226.8:3000/api/admin/getDistributor';
+        $response = $httpClient->request( 'POST', $url,[
+            'form_params' => [
+                'id' =>$id
+            ],
+
+        ]);
+            $statusCode = $response->getStatusCode();
+            $body = $response->getBody()->getContents();
+            $vs=json_decode($body);
+
+            $v= $vs->distributor ;
+            return  view('second',compact('v'));
     }
     public function getUser(Request $request)
     {

@@ -90,13 +90,13 @@
                with font-awesome or any other icon font library -->
 
                <li class="nav-item">
-                <a href="home" class="nav-link">
+                <a href="<?php echo e(route('data')); ?>" class="nav-link">
                   <i class="nav-icon far fa fa-home text-warning" aria-hidden="true"></i>
                   <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/users" class="nav-link">
+                <a href="/users/<?php echo e($v->id); ?>" class="nav-link">
                     <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                   <p>Users</p>
                 </a>
@@ -137,21 +137,20 @@
                <h1>User Detail</h1>
            <li>
                 <div class="jumbotron bg-white">
-                <h3 style="background-color:lightgreen;width:200px">Basic Profile</h3>
+                <h3 style="background-color:lightgreen;width:250px">Basic Information</h3>
                   <h5>
-                  Name: ALI <br>
-                 email: ali@gmail.com <br>
-                 phone: 099432183849
+                  Name: <?php echo e($v->name); ?> <br>
+                 email: <?php echo e($v->email); ?> <br>
+                 phone: <?php echo e($v->phone); ?> <br>
                   </h4>
                 </div>
             </li>
             <li>
                 <div class="jumbotron bg-white">
-                <h3 style="background-color:lightgreen;width:200px">Basic Profile</h3>
+                <h3 style="background-color:lightgreen;width:250px">Detail Information</h3>
                   <h4>
-                  Name: ALI <br>
-                 email: ali@gmail.com <br>
-                 phone: 099432183849
+                  About: <?php echo e($v->about); ?> <br>
+                  Service Type: <?php echo e($v->service_type); ?> <br>
                   </h4>
                 </div>
             </li>

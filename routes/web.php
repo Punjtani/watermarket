@@ -9,13 +9,17 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Middleware\session;
 
 Route::middleware([session::class])->group(function () {
-    Route::view('home','project')->name('home');
-Route::view('waterlap','second')->name('waterlap');
-Route::view('users','third')->name('users');
+    // Route::view('home','project')->name('home');
+
+// Route::view('users','third')->name('users');
 Route::view('forgetpassword','forgetpassword');
 });
 
 Route::post('form', [OrderController::class,'index'])->name('form');
+Route::get('home',[OrderController::class,'data'])->name('data');
+Route::get('users/{id}',[OrderController::class,'represent'])->name('users');
+Route::get('waterlap/{id}',[OrderController::class,'image'])->name('image');
+// Route::view('waterlap','second')->name('waterlap');
 Route::view('/','login')->name('login');
 Route::get('/logout',function() {
     session()->forget('status');
