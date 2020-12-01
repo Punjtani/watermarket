@@ -18,6 +18,12 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function logout()
+    {
+        session()->forget('status2');
+
+        return redirect('/');
+    }
     public function index(Request $request)
     {
         $post_data=$request->all();
@@ -38,7 +44,7 @@ class OrderController extends Controller
         if($v->success)
         {
             $status=$v->success;
-            session(['status'=> $status]);
+            session(['status2'=> $status]);
             return redirect('/home')->with(['status' => $v->message]);
         }
         else
@@ -86,46 +92,44 @@ class OrderController extends Controller
             'form_params' => [
                 'id' =>$id
             ],
-
         ]);
             $statusCode = $response->getStatusCode();
             $body = $response->getBody()->getContents();
             $vs=json_decode($body);
-
             $v= $vs->distributor ;
             return  view('second',compact('v'));
     }
-    public function getUser(Request $request)
-    {
-        JWTAuth::invalidate($request->token);
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
+    // public function getUser(Request $request)
+    // {
+    //     JWTAuth::invalidate($request->token);
+    //     $this->validate($request, [
+    //         'token' => 'required'
+    //     ]);
 
-        $user = JWTAuth::authenticate($request->token);
+    //     $user = JWTAuth::authenticate($request->token);
 
-        return response()->json(['user' => $user]);
-    }
-    public function logout(Request $request)
-    {
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
+    //     return response()->json(['user' => $user]);
+    // }
+    // public function logout(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'token' => 'required'
+    //     ]);
 
-        try {
-            JWTAuth::invalidate($request->token);
+    //     try {
+    //         JWTAuth::invalidate($request->token);
 
-            return response()->json([
-                'success' => true,
-                'message' => 'User logged out successfully'
-            ]);
-        } catch (JWTException $exception) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Sorry, the user cannot be logged out'
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
-    }
+    //         return response()->json([
+    //             'success' => true,
+    //             'message' => 'User logged out successfully'
+    //         ]);
+    //     } catch (JWTException $exception) {
+    //         return response()->json([
+    //             'success' => false,
+    //             'message' => 'Sorry, the user cannot be logged out'
+    //         ], Response::HTTP_INTERNAL_SERVER_ERROR);
+    //     }
+    // }
 
     /**
      * Store a newly created resource in storage.

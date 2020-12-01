@@ -108,7 +108,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/waterlap" class="nav-link">
+                <a href="/waterlap/<?php echo e($v->id); ?>" class="nav-link">
                     <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
                   <p>Water Lap</p>
                 </a>

@@ -16,8 +16,8 @@ class session
      */
     public function handle(Request $request, Closure $next)
     {
-         if(session('status')==false)
-           return  redirect()->route('login');
+         if(session('status2')==false)
+           return  redirect('/');
         return $next($request);
     }
 }
