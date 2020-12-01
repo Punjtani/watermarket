@@ -138,11 +138,21 @@
            <li>
                 <div class="jumbotron bg-white">
                 <h3 style="background-color:lightgreen;width:250px">Basic Information</h3>
-                  <h5>
-                  Name: {{$v->name ?? null}} <br>
-                 email: {{$v->email ?? null}} <br>
-                 phone: {{$v->phone ?? null}} <br>
-                  </h4>
+                   @if ($vs ?? null)
+
+                   <h4>
+                      Name: {{$vs->name ?? null}} <br>
+                      email: {{$vs->email ?? null}} <br>
+                      phone: {{$vs->phone ?? null}} <br>
+                       </h4>
+                   @else
+                   <h4>
+                    Name: {{$vs->name ?? null}} <br>
+                    email: {{$vs->email ?? null}} <br>
+                    phone: {{$vs->phone ?? null}} <br>
+                     </h4>
+                     @endif
+
                 </div>
             </li>
             <li>
@@ -176,16 +186,29 @@
                         </div>
                         </div>
                     </div>
+                    @if ($vs1 ?? null)
+                    <h4>
+                     About: {{$vs1->address }} <br>
+                     Nationality: {{$vs1->nationality }} <br>
+                     ID Number: {{$vs1->id_number}} <br>
+                     Address: {{$vs1->address}} <br>
+                     IBAN: {{$vs1->iban }} <br>
+                     DOB :{{$vs1->dob}} <br>
+                     {{-- Status: {{$v->user_status ?? null}} --}}
+                     </h4>
+                    @else
+                    <h4>
+                     About: {{$vs1->address ?? null}} <br>
+                     Nationality: {{$vs1->nationality ?? null}} <br>
+                     ID Number: {{$vs1->id_number ?? null}} <br>
+                     Address: {{$vs1->address ?? null}} <br>
+                     IBAN: {{$vs1->iban ?? null}} <br>
+                     DOB :{{$vs1->dob ?? null}} <br>
+                     {{-- Status: {{$v->user_status ?? null}} --}}
+                     </h4>
+                    @endif
 
-                  <h4>
-                  About: {{$v->address ?? null}} <br>
-                  Nationality: {{$v->nationality ?? null}} <br>
-                  ID Number: {{$v->id_number ?? null}} <br>
-                  Address: {{$v->address ?? null}} <br>
-                  IBAN: {{$v->iban ?? null}} <br>
-                  DOB :{{$v->dob ?? null}} <br>
-                  {{-- Status: {{$v->user_status ?? null}} --}}
-                  </h4>
+
                 </div>
             </li>
 

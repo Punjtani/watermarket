@@ -65,41 +65,86 @@ class OrderController extends Controller
        $us=json_decode($body);
          $users=$us->users;
          $status=$users[$id]->user_status;
-
+            $dist=$users[$id]->distributor;
+            $dist1=$users[$id]->representative;
         //  $post_data=$id;
-
+       if($dist&&$dist1)
+       {
         $url='http://80.209.226.8:3000/api/admin/getDistributor';
         $response = $httpClient->request( 'POST', $url,[
             'form_params' => [
-                'id' =>$id
+                'id' =>$dist
             ],
         ]);
             $statusCode = $response->getStatusCode();
             $body = $response->getBody()->getContents();
-            $vs=json_decode($body);
+            $ts=json_decode($body);
+              $vs=$ts->distributor;
 
-
-                $url='http://80.209.226.8:3000/api/admin/getRepresentative';
+         ////////////////////////representative////////////////////////////////
+         $url='http://80.209.226.8:3000/api/admin/getRepresentative';
         $response1 = $httpClient->request( 'POST', $url,[
             'form_params' => [
-                'id' =>$id
+                'id' =>$dist1
             ],
         ]);
             $statusCode1 = $response1->getStatusCode();
             $body1 = $response1->getBody()->getContents();
-            $vs1=json_decode($body1);
+            $vs=json_decode($body1);
+                 $vs1=$vs->representative;
+          return  view('third',compact('vs','vs1','status'));
+        }
+        else if($dist)
+        {
+            $url='http://80.209.226.8:3000/api/admin/getDistributor';
+        $response = $httpClient->request( 'POST', $url,[
+            'form_params' => [
+                'id' =>$dist
+            ],
+        ]);
+            $statusCode = $response->getStatusCode();
+            $body = $response->getBody()->getContents();
+            $ts=json_decode($body);
+              $vs=$ts->distributor;
+            return view('third',compact('vs','status'));
+        }
+         else if($dist1)
+         {
+            $url='http://80.209.226.8:3000/api/admin/getRepresentative';
+            $response1 = $httpClient->request( 'POST', $url,[
+                'form_params' => [
+                    'id' =>$dist1
+                ],
+            ]);
+                $statusCode1 = $response1->getStatusCode();
+                $body1 = $response1->getBody()->getContents();
+                $vs=json_decode($body1);
+                 $vs1=$vs->representative;
+                return view('third',compact('vs1','status'));
+         }
+         else
+         {
+            return view('third',compact('status'));
+         }
 
-            //  dd($vs1);
-           if($vs->distributor ?? null)
-           {
-               $v=$vs->distributor;
-               return  view('third',compact('v','status'));
-           }
-           else
-           {
-               $v2=$vs1->representative ?? null;
-               return  view('third',compact('v','status'));
-           }
+
+        //     //  dd($vs1);
+        //     $v=$vs->distributor;
+        //     dump($v);
+        //     // $v2=$vs1->representative;
+        //     // dd($vs);
+        //    if($vs->distributor ?? null)
+        //    {
+        //        $v=$vs->distributor;
+        //     //    dd($v);
+        //        return  view('third',compact('v','status'));
+        //    }
+        //    else
+        //    {
+        //        $v2=$vs1->representative ?? null;
+        //     //    dd($v2);
+        //        return  view('third',compact('v','status'));
+        //    }
 
 
     }

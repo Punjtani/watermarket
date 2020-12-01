@@ -108,7 +108,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/waterlap/<?php echo e($v->id ?? null); ?>" class="nav-link">
+                <a href="/waterlap" class="nav-link">
                     <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
                   <p>Water Lap</p>
                 </a>
@@ -138,11 +138,21 @@
            <li>
                 <div class="jumbotron bg-white">
                 <h3 style="background-color:lightgreen;width:250px">Basic Information</h3>
-                  <h5>
-                  Name: <?php echo e($v->name ?? null); ?> <br>
-                 email: <?php echo e($v->email ?? null); ?> <br>
-                 phone: <?php echo e($v->phone ?? null); ?> <br>
-                  </h4>
+                   <?php if($vs ?? null): ?>
+
+                   <h4>
+                      Name: <?php echo e($vs->name ?? null); ?> <br>
+                      email: <?php echo e($vs->email ?? null); ?> <br>
+                      phone: <?php echo e($vs->phone ?? null); ?> <br>
+                       </h4>
+                   <?php else: ?>
+                   <h4>
+                    Name: <?php echo e($vs->name ?? null); ?> <br>
+                    email: <?php echo e($vs->email ?? null); ?> <br>
+                    phone: <?php echo e($vs->phone ?? null); ?> <br>
+                     </h4>
+                     <?php endif; ?>
+
                 </div>
             </li>
             <li>
@@ -176,16 +186,29 @@
                         </div>
                         </div>
                     </div>
+                    <?php if($vs1 ?? null): ?>
+                    <h4>
+                     About: <?php echo e($vs1->address); ?> <br>
+                     Nationality: <?php echo e($vs1->nationality); ?> <br>
+                     ID Number: <?php echo e($vs1->id_number); ?> <br>
+                     Address: <?php echo e($vs1->address); ?> <br>
+                     IBAN: <?php echo e($vs1->iban); ?> <br>
+                     DOB :<?php echo e($vs1->dob); ?> <br>
+                     
+                     </h4>
+                    <?php else: ?>
+                    <h4>
+                     About: <?php echo e($vs1->address ?? null); ?> <br>
+                     Nationality: <?php echo e($vs1->nationality ?? null); ?> <br>
+                     ID Number: <?php echo e($vs1->id_number ?? null); ?> <br>
+                     Address: <?php echo e($vs1->address ?? null); ?> <br>
+                     IBAN: <?php echo e($vs1->iban ?? null); ?> <br>
+                     DOB :<?php echo e($vs1->dob ?? null); ?> <br>
+                     
+                     </h4>
+                    <?php endif; ?>
 
-                  <h4>
-                  About: <?php echo e($v->address ?? null); ?> <br>
-                  Nationality: <?php echo e($v->nationality ?? null); ?> <br>
-                  ID Number: <?php echo e($v->id_number ?? null); ?> <br>
-                  Address: <?php echo e($v->address ?? null); ?> <br>
-                  IBAN: <?php echo e($v->iban ?? null); ?> <br>
-                  DOB :<?php echo e($v->dob ?? null); ?> <br>
-                  
-                  </h4>
+
                 </div>
             </li>
 
