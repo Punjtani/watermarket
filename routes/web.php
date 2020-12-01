@@ -11,6 +11,7 @@ use App\Http\Middleware\session;
 Route::middleware([session::class])->group(function () {
 
 Route::view('forgetpassword','forgetpassword');
+// Route::view('home','project')->name('home');
 Route::get('/home',[OrderController::class,'data'])->name('data');
 Route::get('/users/{id}',[OrderController::class,'represent'])->name('users');
 Route::get('/waterlap/{id}',[OrderController::class,'image'])->name('image');

@@ -142,6 +142,8 @@
                   Name: {{$v->name}} <br>
                  email: {{$v->email}} <br>
                  phone: {{$v->phone}} <br>
+                 About: {{$v->about}} <br>
+                 Service Type: {{$v->service_type}} <br>
                   </h4>
                 </div>
             </li>

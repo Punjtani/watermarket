@@ -15,28 +15,9 @@
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-   <style>
-
-@media (min-width: 1800px) and (max-width:2300px) {
-        button {width:250px}
-}
-@media (min-width: 1100px) and (max-width:1800px) {
-        button {width:250px}
-}
-@media (min-width: 800px) and (max-width:1100px) {
-        button {width:250px}
-}
-       @media (min-width: 550px) and (max-width:800px) {
-        button {width:250px}
-}
-@media (min-width: 450px) and (max-width:550px) {
-        button {width:200px}
-}
-@media (min-width: 350px) and (max-width:450px) {
-        button {width:140px}
-}
-@media (min-width: 250px) and (max-width:350px) {
-        button {width:120px}
+  <style>
+      @media (min-width: 1950px) and (max-width:2050px) {
+    .left{margin-left:1800%}
 }
 @media (min-width: 1850px) and (max-width:1950px) {
     .left{margin-left:1700%}
@@ -65,13 +46,14 @@
   .left{margin-left:400%} }
  @media (min-width: 440px) and (max-width:550px) {
   .left{margin-left:350%} }
- @media (min-width: 400px) and (max-width:450px) {
+ @media (min-width: 400px) and (max-width:440px) {
   .left{margin-left:320%}}
  }
  @media (min-width: 340px) and (max-width:400px) {
-  .left{margin-left:310%}}
+  .left{margin-left:1250%}}
  }
-   </style>
+
+  </style>
 </head>
 <body class="hold-transition sidebar-mini" style="overflow-x: hidden">
 <!-- Site wrapper -->
@@ -95,26 +77,26 @@
 
   </nav>
      <!-- Main Sidebar Container -->
-     <aside class="main-sidebar sidebar-blue bg-white elevation-1" style="margin-top:55px">
-        <!-- Brand Logo -->
+  <aside class="main-sidebar sidebar-white  bg-white  elevation-2" style="margin-top:55px;">
+    <!-- Brand Logo -->
 
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar  flex-column"
-             data-widget="treeview" role="menu" data-accordion="false" style="margin-top:55px">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav  nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false" style="margin-top:55px">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
 
-
-              <li class="nav-item">
-                <a href="/home" class="nav-link">
+               <li class="nav-item">
+                <a href="<?php echo e(route('data')); ?>" class="nav-link">
                   <i class="nav-icon far fa fa-home text-warning" aria-hidden="true"></i>
                   <p>Home</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/users" class="nav-link">
+                <a href="/users/<?php echo e($v->id); ?>" class="nav-link">
                     <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                   <p>Users</p>
                 </a>
@@ -137,66 +119,50 @@
                   <p>Settings</p>
                 </a>
               </li>
-            </ul>
-          </nav>
-          <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-      </aside>
-  <div class="content-wrapper">
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  <div class="container content-wrapper container-fluid" ;>
 
-          <!-- Sidebar Menu -->
-          <div style="margin-top:0px;padding:14px">
-            <nav class="mt-2">
-                
-                <h1>Water Lap</h1>
-                <ul class="nav  nav-sidebar flex-column" data-widget="treeview" role="menu"
-                 data-accordion="false" style="padding:54px";>
-                  <!-- Add icons to the links using the .nav-icon class
-                       with font-awesome or any other icon font library -->
-                       <a href="#" class="nav-link">
-                        <button type="button" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            <img class ="img-fluid" src="https://www.mywatermarket.com:3001/<?php echo e($v->commercial_register); ?>">
-                        </button>
-                      <p style="text-decoration:underline">Delete</p>
-                    </a>
-                    <a href="#" class="nav-link">
-                        <button type="button" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            Image2
-                        </button>
-                      <p style="text-decoration:underline">Delete</p>
-                    </a>
+    <!-- Sidebar Menu -->
+    <div style="margin-top:0px;padding:14px";>
+      <nav class="mt-2">
+          <ul class="nav  nav-sidebar flex-column" data-widget="treeview" role="menu"
+           data-accordion="false" style="padding:54px";>
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+               <h1>User Detail</h1>
+           <li>
+                <div class="jumbotron bg-white">
+                <h3 style="background-color:lightgreen;width:250px">Basic Information</h3>
+                  <h5>
+                  Name: <?php echo e($v->name); ?> <br>
+                 email: <?php echo e($v->email); ?> <br>
+                 phone: <?php echo e($v->phone); ?> <br>
+                 About: <?php echo e($v->about); ?> <br>
+                 Service Type: <?php echo e($v->service_type); ?> <br>
+                  </h4>
+                </div>
+            </li>
+            <li>
+                <div class="jumbotron bg-white">
+                <h3 style="background-color:lightgreen;width:250px">Detail Information</h3>
+                  <h4>
+                  About: <?php echo e($v->about); ?> <br>
+                  Service Type: <?php echo e($v->service_type); ?> <br>
+                  </h4>
+                </div>
+            </li>
 
+          </ul>
+        </nav>
+    </div>
 
-                    <a href="#" class="nav-link">
-                        <button type="button" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            Image3
-                        </button>
-                      <p style="text-decoration:underline">Delete</p>
-                    </a>
-
-
-                    <a href="#" class="nav-link">
-                        <button type="button" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            Image4
-                        </button>
-                      <p style="text-decoration:underline">Delete</p>
-                    </a>
-
-
-                    <a href="#" class="nav-link">
-                        <button type="button" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            Image1
-                        </button>
-                      <p style="text-decoration:underline">Delete</p>
-                    </a>
-
-                </ul>
-              </nav>
-          </div>
-
-          <!-- /.sidebar-menu -->
-  </div>
+    <!-- /.sidebar-menu -->
+</div>
 </section>
 </div>
 
@@ -206,7 +172,9 @@
 </aside>
 <!-- /.control-sidebar -->
 </div>
-  <!-- jQuery -->
+<!-- ./wrapper -->
+
+<!-- jQuery -->
 <script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -216,4 +184,4 @@
 <script src="../../dist/js/demo.js"></script>
 </body>
 </html>
-<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views/second.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views\third.blade.php ENDPATH**/ ?>

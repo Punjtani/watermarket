@@ -8,34 +8,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-
-<!-- Ionicons -->
- <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-<!-- Tempusdominus Bbootstrap 4 -->
-<link rel="stylesheet" href="<?php echo e(asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')); ?>">
-<!-- iCheck -->
-<link rel="stylesheet" href="<?php echo e(asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')); ?>">
-<!-- JQVMap -->
-<link rel="stylesheet" href="<?php echo e(asset('plugins/jqvmap/jqvmap.min.css')); ?>">
-<!-- Theme style -->
-<link rel="stylesheet" href="<?php echo e(asset('dist/css/adminlte.min.css')); ?>">
-<!-- overlayScrollbars -->
-<link rel="stylesheet" href="<?php echo e(asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')); ?>">
-<!-- Daterange picker -->
-<link rel="stylesheet" href="<?php echo e(asset('plugins/daterangepicker/daterangepicker.css')); ?>">
-<!-- summernote -->
-<link rel="stylesheet" href="<?php echo e(asset('plugins/summernote/summernote-bs4.css')); ?>">
-<!-- Google Font: Source Sans Pro -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-<!-- jQuery library -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <style>
+    /* @media (max-width: 678px) {
+                .input{
+                  margin-left: 10%;
+                }
+    } */
+    /* @media (min-width: 544px) {
+  h1 {font-size:1.5rem;} /*1rem = 16px*/
+} */
 @media (min-width: 950px) and (max-width:1100px) {
   h1 {font-size:2.75rem}
 }
@@ -75,46 +66,40 @@
  @media (min-width: 240px) and (max-width:400px) {
   .login-box{margin-left:-23px; width:160px}
  }
+ /*
+@media (min-width: 50px) and (max-width:850px) {
+  .login-box{margin-left:-45px}
+} */
 </style>
 <body class="hold-transition login-page" style="
 background: linear-gradient(90deg, white 53%,  #34b7eb 50%);">
 
-<?php if($status ?? null): ?>
-<div class="alert alert-danger alert-dismissible fade show">
-    <button type="button"   class="close" data-dismiss="alert"> <a  href="/project3" style="text-decoration:none ">&times;</a> </button>
-    <strong><?php echo e($status); ?></strong>
-  </div>
-<?php endif; ?>
-
-
     <div class="row" style="margin-top:35px"
     style="margin-top:35px">
-
         <div class="col-7" >
-             <h1 style="margin-left:25%">Water Market</h1>
+             <h1 style="margin-left:25%">Password</h1>
         </div>
         <div class="col-5" >
-           <h1 style="color:white;margin-left:-5%">Admin Panel</h1>  <br>
+           <h1 style="color:white;margin-left:2%">Confirmation</h1>  <br>
             <div class="login-box">
-                        <form action="<?php echo e(route('form')); ?>"  method="POST" style="margin-top:40%;" >
-                             <?php echo csrf_field(); ?>
+                        <form action="../../index3.html" method="post"  style="margin-top:40%;">
+
                             <div class="input-group mb-3" style="width:100%">
-                              <input type="email" class="form-control " id="email" name="email" placeholder="Email" style="border-radius:40px;">
+                              <input type="email" class="form-control " placeholder="Old Password" style="border-radius:40px;">
                               </div>
                               <div class="input-group mb-3">
-                              <input type="password" class="form-control" id="password" name="password" placeholder="Password" style="border-radius:40px">
+                              <input type="password" class="form-control" placeholder="New Password" style="border-radius:40px">
                              </div>
+                             <div class="input-group mb-3">
+                                <input type="password" class="form-control" placeholder="Confirm Password" style="border-radius:40px">
+                               </div>
                               <div class="row">
                               <div class="col-6">
                               </div>
-                              <!-- /.col -->
-                              <div class="col-6" >
-                                <a href="/project4" style="color:white; text-decoration: underline;">Forget Password?</a>
-                            </div>
                                <div class="input-group">
-                                <button type="submit" name="submit" class="btn btn-default btn-lg"
+                                <button type="button" class="btn btn-default btn-lg"
                                 style="border-radius:40px;width:58%;margin-left:25%;margin-top:20px" >
-                                 Login
+                                 <a href="/project">submit</a>
                               </button>
                             </div>
                               <!-- /.col -->
@@ -128,4 +113,4 @@ background: linear-gradient(90deg, white 53%,  #34b7eb 50%);">
     </div>
 </body>
 </html>
-<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views/login.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views\forgetpassword.blade.php ENDPATH**/ ?>
