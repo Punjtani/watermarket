@@ -96,7 +96,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/users/{{$v->id}}" class="nav-link">
+                <a href="/users/{{$v->id ?? null}}" class="nav-link">
                     <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                   <p>Users</p>
                 </a>
@@ -108,7 +108,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/waterlap/{{$v->id}}" class="nav-link">
+                <a href="/waterlap" class="nav-link">
                     <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
                   <p>Water Lap</p>
                 </a>
@@ -139,20 +139,52 @@
                 <div class="jumbotron bg-white">
                 <h3 style="background-color:lightgreen;width:250px">Basic Information</h3>
                   <h5>
-                  Name: {{$v->name}} <br>
-                 email: {{$v->email}} <br>
-                 phone: {{$v->phone}} <br>
-                 About: {{$v->about}} <br>
-                 Service Type: {{$v->service_type}} <br>
+                  Name: {{$v->name ?? null}} <br>
+                 email: {{$v->email ?? null}} <br>
+                 phone: {{$v->phone ?? null}} <br>
                   </h4>
                 </div>
             </li>
             <li>
                 <div class="jumbotron bg-white">
-                <h3 style="background-color:lightgreen;width:250px">Detail Information</h3>
+                    <div class="container">
+                        <div class="row">
+                            {{-- {{dd($status)}} --}}
+                            <div class="col-4"><h3 style="background-color:lightgreen;width:250px">
+                                Detail Information</h3></div>
+                            <div class="col-8">
+                                <span>
+
+
+
+             @if ($status)
+             <input type="radio" id="male" name="gender" value="Active" checked>
+             <label for="male">Active</label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+             <input type="radio" id="other" name="gender" value="InActive" unchecked>
+             <label for="female">Inactive</label>
+
+             @else
+             <input type="radio" id="male" name="gender" value="Active" unchecked>
+             <label for="male">Active</label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+             <input type="radio" id="other" name="gender" value="InActive" checked>
+             <label for="female">Inactive</label>
+
+             @endif
+
+
+                            </span>
+                        </div>
+                        </div>
+                    </div>
+
                   <h4>
-                  About: {{$v->about}} <br>
-                  Service Type: {{$v->service_type}} <br>
+                  About: {{$v->address ?? null}} <br>
+                  Nationality: {{$v->nationality ?? null}} <br>
+                  ID Number: {{$v->id_number ?? null}} <br>
+                  Address: {{$v->address ?? null}} <br>
+                  IBAN: {{$v->iban ?? null}} <br>
+                  DOB :{{$v->dob ?? null}} <br>
+                  {{-- Status: {{$v->user_status ?? null}} --}}
                   </h4>
                 </div>
             </li>

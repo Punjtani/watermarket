@@ -11,10 +11,11 @@ use App\Http\Middleware\session;
 Route::middleware([session::class])->group(function () {
 
 Route::view('forgetpassword','forgetpassword');
-// Route::view('home','project')->name('home');
+// Route::view('holapme','project')->name('home');
+ Route::view('waterlap','second')->name('home');
 Route::get('/home',[OrderController::class,'data'])->name('data');
 Route::get('/users/{id}',[OrderController::class,'represent'])->name('users');
-Route::get('/waterlap/{id}',[OrderController::class,'image'])->name('image');
+// Route::get('/waterlap/{id}',[OrderController::class,'image'])->name('image');
 Route::get('/logout',[OrderController::class,'logout'])->name('logout');
 });
 Route::post('form', [OrderController::class,'index'])->name('form');

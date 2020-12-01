@@ -116,7 +116,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/waterlap/14" class="nav-link">
+            <a href="/waterlap" class="nav-link">
                 <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
               <p>Water Lap</p>
             </a>
@@ -216,8 +216,8 @@
                   <tr>
                     <th>Name <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
                     <th>Email <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
-                    <th>User Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
-                    <th>Distributor Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
+                    <th>User Type <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
+                    <th> Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -228,14 +228,29 @@
                       <tr>
                           
                           <?php if(empty($s->name)): ?>
-                          <td><a href="<?php echo e(route('users', $s->buyer)); ?>">miss </a></td>
+                          <td><a href="<?php echo e(route('users', $s->buyer)); ?>">null </a></td>
                           <?php else: ?>
                           <td><a href="<?php echo e(route('users', $s->buyer)); ?>"><?php echo e($s->name); ?> </a></td>
                           <?php endif; ?>
                         <td><?php echo e($s->email); ?></td>
-                        <td><span class="label label-success"> <?php echo e($s->user_status); ?></span></td>
+                        <td><span class="label label-success">
+                            <?php if($s->buyer&&$s->distributor&&$s->representative): ?>
+                            B D R
+                           <?php elseif($s->buyer&&$s->representative): ?>
+                            B R
+                           <?php elseif($s->buyer&&$s->distributor): ?>
+                            B  D
+                            <?php else: ?>
+                            B
+                        <?php endif; ?>
+                     </span></td>
                         <td>
-                          <div class="sparkbar" data-color="#00a65a" data-height="20"><?php echo e($s->distributor_status); ?></div>
+                          <div class="sparkbar" data-color="#00a65a" data-height="20">
+                              <?php if($s->user_status): ?>
+                              <i class="fa fa-check-circle" aria-hidden="true" style="color: green"></i>
+                              <?php else: ?>
+                              <i class="fa fa-exclamation-circle"style="color: red" aria-hidden="true"></i>
+                              <?php endif; ?></div>
                         </td>
                       </tr>
                           
@@ -273,4 +288,4 @@
 <script src="../../dist/js/demo.js"></script>
 </body>
 </html>
-<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views\project.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views/project.blade.php ENDPATH**/ ?>

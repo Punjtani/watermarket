@@ -139,7 +139,7 @@
 
     <section class="content">
 
-      <?php echo $__env->yieldContent('data'); ?>
+      <?php echo $__env->yieldContent('content'); ?>
 
     </section>
   </div>

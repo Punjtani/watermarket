@@ -14,8 +14,11 @@ class FirstComposer
         'Content-Type'     => 'application/json',
     ]]);
     $body = $response->getBody()->getContents();
-       $v=json_decode($body);
-       $users=$v->users;
-       $view->with('users', $v->users);
+    $us=json_decode($body);
+    $users=$us->users;
+   //  foreach($users as $n)
+   //   dump($n);
+   //   dd("k");
+  return view('project',compact('users'));
     }
 }

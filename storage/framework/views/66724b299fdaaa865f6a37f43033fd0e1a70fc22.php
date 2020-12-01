@@ -149,17 +149,29 @@
                 <div class="jumbotron bg-white">
                     <div class="container">
                         <div class="row">
-                            <?php echo e(dd($users)); ?>
-
+                            
                             <div class="col-4"><h3 style="background-color:lightgreen;width:250px">
                                 Detail Information</h3></div>
-                            <div class="col-6"> <span style="display:flex-row">
-                                <input type="radio" id="male" name="gender" value="male">
-            <label for="male">Active</label><br>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Non Active</label><br>
-            <input type="radio" id="other" name="gender" value="other">
-            <label for="other">Other</label>
+                            <div class="col-8">
+                                <span>
+
+
+
+             <?php if($status): ?>
+             <input type="radio" id="male" name="gender" value="Active" checked>
+             <label for="male">Active</label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+             <input type="radio" id="other" name="gender" value="InActive" unchecked>
+             <label for="female">Inactive</label>
+
+             <?php else: ?>
+             <input type="radio" id="male" name="gender" value="Active" unchecked>
+             <label for="male">Active</label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+             <input type="radio" id="other" name="gender" value="InActive" checked>
+             <label for="female">Inactive</label>
+
+             <?php endif; ?>
+
+
                             </span>
                         </div>
                         </div>
@@ -204,4 +216,4 @@
 <script src="../../dist/js/demo.js"></script>
 </body>
 </html>
-<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views\third.blade.php ENDPATH**/ ?>
+<?php /**PATH D:\xammp1\htdocs\projects\newlaravel8\resources\views/third.blade.php ENDPATH**/ ?>

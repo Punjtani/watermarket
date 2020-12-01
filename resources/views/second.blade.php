@@ -114,7 +114,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/users/{{$v[0]->distributor_id}}" class="nav-link">
+                <a href="/users" class="nav-link">
                     <i class="nav-icon fa fa-users" aria-hidden="true"></i>
                   <p>Users</p>
                 </a>
@@ -126,7 +126,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/waterlap/{{$v[0]->distributor_id}}" class="nav-link">
+                <a href="/waterlap" class="nav-link">
                     <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
                   <p>Water Lap</p>
                 </a>
@@ -154,19 +154,42 @@
                  data-accordion="false" style="padding:54px";>
                   <!-- Add icons to the links using the .nav-icon class
                        with font-awesome or any other icon font library -->
-                       @foreach ($v as $p)
-                           {{-- {{dd($p->url)}} --}}
-                           <a href="#" class="nav-link">
-                            <button type="button" class="btn btn-default btn-lg" style="border-radius:40px;">
-                                <img class ="img-fluid" src="https://www.mywatermarket.com:3001/{{$p->url}}">
-                            </button>
-                          <p style="text-decoration:underline">Delete</p>
-                        </a>
-                       @endforeach
+                       <a href="#" class="nav-link">
+                        <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
+                            <input type="file" id="myFile" name="filename">
+                        </button>
+                      <p style="text-decoration:underline">Delete</p>
+                    </a>
+                    <a href="#" class="nav-link">
+                        <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
+                            <input type="file" id="myFile" name="filename">
+                        </button>
+                      <p style="text-decoration:underline">Delete</p>
+                    </a>
 
 
+                    <a href="#" class="nav-link">
+                        <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
+                            <input type="file" id="myFile" name="filename">
+                        </button>
+                      <p style="text-decoration:underline">Delete</p>
+                    </a>
 
 
+                    <a href="#" class="nav-link">
+                        <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
+                            <input type="file" id="myFile" name="filename">
+                        </button>
+                      <p style="text-decoration:underline">Delete</p>
+                    </a>
+
+
+                    <a href="#" class="nav-link">
+                        <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
+                            <input type="file" id="myFile" name="filename">
+                        </button>
+                      <p style="text-decoration:underline">Delete</p>
+                    </a>
 
                 </ul>
               </nav>

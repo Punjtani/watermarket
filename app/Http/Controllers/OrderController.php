@@ -55,21 +55,53 @@ class OrderController extends Controller
         }
     }
     public function represent($id){
-        //  $post_data=$id;
         $httpClient = new GuzzleClient();
+        $url='http://80.209.226.8:3000/api/admin/getUsers';
+        $response = $httpClient->request( 'Get', $url,[
+        'headers' => [
+        'Content-Type'     => 'application/json',
+    ]]);
+    $body = $response->getBody()->getContents();
+       $us=json_decode($body);
+         $users=$us->users;
+         $status=$users[$id]->user_status;
+
+        //  $post_data=$id;
+
         $url='http://80.209.226.8:3000/api/admin/getDistributor';
         $response = $httpClient->request( 'POST', $url,[
             'form_params' => [
                 'id' =>$id
             ],
-
         ]);
             $statusCode = $response->getStatusCode();
             $body = $response->getBody()->getContents();
             $vs=json_decode($body);
 
-            $v= $vs->distributor ;
-            return  view('third',compact('v'));
+
+                $url='http://80.209.226.8:3000/api/admin/getRepresentative';
+        $response1 = $httpClient->request( 'POST', $url,[
+            'form_params' => [
+                'id' =>$id
+            ],
+        ]);
+            $statusCode1 = $response1->getStatusCode();
+            $body1 = $response1->getBody()->getContents();
+            $vs1=json_decode($body1);
+
+            //  dd($vs1);
+           if($vs->distributor ?? null)
+           {
+               $v=$vs->distributor;
+               return  view('third',compact('v','status'));
+           }
+           else
+           {
+               $v2=$vs1->representative ?? null;
+               return  view('third',compact('v','status'));
+           }
+
+
     }
     public function data() {
         $httpClient = new GuzzleClient();
@@ -79,117 +111,30 @@ class OrderController extends Controller
         'Content-Type'     => 'application/json',
     ]]);
     $body = $response->getBody()->getContents();
-       $v=json_decode($body);
-       $users=$v->users;
+       $us=json_decode($body);
+         $users=$us->users;
+        //  foreach($users as $n)
+        //   dump($n);
+        //   dd("k");
        return view('project',compact('users'));
     }
-    public function image($id){
-        //  $post_data=$id;
-        $httpClient = new GuzzleClient();
-        $url='http://80.209.226.8:3000/api/admin/getDistributor';
-        // $url='http://80.209.226.8:3000/api/admin/getRepresentative';
-        $response = $httpClient->request( 'POST', $url,[
-            'form_params' => [
-                'id' =>$id
-            ],
-        ]);
-            $statusCode = $response->getStatusCode();
-            $body = $response->getBody()->getContents();
-            $vp=json_decode($body);
-            $v=$vp->brands;
-            //  dd($v->brands[0]->distributor_id);
-            // $v= $vs->distributor ;
+//     public function image($id){
+//         //  $post_data=$id;
+//         $httpClient = new GuzzleClient();
+//         $url='http://80.209.226.8:3000/api/admin/getDistributor';
+//         $response = $httpClient->request( 'POST', $url,[
+//             'form_params' => [
+//                 'id' =>$id
+//             ],
+//         ]);
+//             $statusCode = $response->getStatusCode();
+//             $body = $response->getBody()->getContents();
+//             $vp=json_decode($body);
+//             // $v=$vp->brands;
+//             //  dd($v->brands[0]->distributor_id);
+//             // $v= $vs->distributor ;
 
-            return  view('second',compact('v'));
-    }
-    // public function getUser(Request $request)
-    // {
-    //     JWTAuth::invalidate($request->token);
-    //     $this->validate($request, [
-    //         'token' => 'required'
-    //     ]);
-
-    //     $user = JWTAuth::authenticate($request->token);
-
-    //     return response()->json(['user' => $user]);
-    // }
-    // public function logout(Request $request)
-    // {
-    //     $this->validate($request, [
-    //         'token' => 'required'
-    //     ]);
-
-    //     try {
-    //         JWTAuth::invalidate($request->token);
-
-    //         return response()->json([
-    //             'success' => true,
-    //             'message' => 'User logged out successfully'
-    //         ]);
-    //     } catch (JWTException $exception) {
-    //         return response()->json([
-    //             'success' => false,
-    //             'message' => 'Sorry, the user cannot be logged out'
-    //         ], Response::HTTP_INTERNAL_SERVER_ERROR);
-    //     }
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-          $c=array_merge(['customer_id'=>1],$request->all());
-         $v=Order::create($c);
-          Order::all();
-            return redirect()->back();
-        }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Order $order)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Order $order)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Order  $order
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Order $order)
-    {
-        //
-    }
+//             return  view('second',compact('v'));
+//     }
+// }
 }

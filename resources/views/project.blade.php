@@ -104,7 +104,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/users/14" class="nav-link">
+            <a href="/users/20" class="nav-link">
                 <i class="nav-icon fa fa-users" aria-hidden="true"></i>
               <p>Users</p>
             </a>
@@ -116,7 +116,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/waterlap/14" class="nav-link">
+            <a href="/waterlap" class="nav-link">
                 <i class="nav-icon fa fa-tint" aria-hidden="true"></i>
               <p>Water Lap</p>
             </a>
@@ -157,18 +157,7 @@
     <!-- Main content -->
     <section class="content">
 
-      <!-- Default box -->
 
-        {{-- <div class="card-header">
-          <h3 class="card-title">Title</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div> --}}
 
      <div class="container">
         <h1>Home Page</h1>
@@ -242,23 +231,44 @@
                   <tr>
                     <th>Name <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
                     <th>Email <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
-                    <th>User Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
-                    <th>Distributor Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
+                    <th>User Type <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
+                    <th> Status <i class="fa fa-minus-circle" aria-hidden="true"></i></th>
                   </tr>
                   </thead>
                   <tbody>
-                      @foreach ($users as $s )
-                      {{-- {{dd($s)}} --}}
-                      @if($s->email!=null)
+
+                      @foreach ($users as $s)
+
+                      {{-- @if($s->email!=null) --}}
                       <tr>
-                        <td><a href="{{route('users', $s->buyer)}}">{{$s->name}}</a></td>
+                          {{-- {{dd($s->distributor)}} --}}
+                          @if (empty($s->name))
+                          <td><a href="{{route('users', $s->buyer)}}">null </a></td>
+                          @else
+                          <td><a href="{{route('users', $s->buyer)}}">{{$s->name}} </a></td>
+                          @endif
                         <td>{{$s->email}}</td>
-                        <td><span class="label label-success"> {{$s->user_status}}</span></td>
+                        <td><span class="label label-success">
+                            @if($s->buyer&&$s->distributor&&$s->representative)
+                            B D R
+                           @elseif($s->buyer&&$s->representative)
+                            B R
+                           @elseif($s->buyer&&$s->distributor)
+                            B  D
+                            @else
+                            B
+                        @endif
+                     </span></td>
                         <td>
-                          <div class="sparkbar" data-color="#00a65a" data-height="20">{{$s->distributor_status}}</div>
+                          <div class="sparkbar" data-color="#00a65a" data-height="20">
+                              @if ($s->user_status)
+                              <i class="fa fa-check-circle" aria-hidden="true" style="color: green"></i>
+                              @else
+                              <i class="fa fa-exclamation-circle"style="color: red" aria-hidden="true"></i>
+                              @endif</div>
                         </td>
                       </tr>
-                          @endif
+                          {{-- @endif --}}
                       @endforeach
 
                   </tbody>
