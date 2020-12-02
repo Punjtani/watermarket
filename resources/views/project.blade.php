@@ -249,12 +249,12 @@
                           @endif
                         <td>{{$s->email}}</td>
                         <td><span class="label label-success">
-                            @if($s->buyer&&$s->distributor&&$s->representative)
+                            @if($s->distributor&&$s->representative)
                             B D R
-                           @elseif($s->buyer&&$s->representative)
+                           @elseif($s->representative)
                             B R
-                           @elseif($s->buyer&&$s->distributor)
-                            B  D
+                           @elseif($s->distributor)
+                            B D
                             @else
                             B
                         @endif

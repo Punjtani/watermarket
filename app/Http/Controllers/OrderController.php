@@ -69,13 +69,12 @@ class OrderController extends Controller
              if($p->buyer==$id)
              {
              $status=$p->user_status;
-             $dist=$p->distributor;
-             $dist1=$p->representative;
+
+             $dist=$p->distributor ?? null;
+             $dist1=$p->representative ?? null;
+             break;
              }
          }
-
-
-
        if($dist&&$dist1)
        {
         $url='http://80.209.226.8:3000/api/admin/getDistributor';
@@ -88,7 +87,6 @@ class OrderController extends Controller
             $body = $response->getBody()->getContents();
             $ts=json_decode($body);
               $vs=$ts->distributor;
-
          ////////////////////////representative////////////////////////////////
          $url='http://80.209.226.8:3000/api/admin/getRepresentative';
         $response1 = $httpClient->request( 'POST', $url,[
@@ -98,9 +96,14 @@ class OrderController extends Controller
         ]);
             $statusCode1 = $response1->getStatusCode();
             $body1 = $response1->getBody()->getContents();
-            $vs=json_decode($body1);
-                 $vs1=$vs->representative;
-          return  view('third',compact('vs','vs1','status'));
+            $vs3=json_decode($body1);
+                 $vs1=$vs3->representative;
+                //  $data=['vs','vs1','status'];
+          return  view('third')->with(compact('vs'))
+
+          ->with(compact('vs1'))
+
+          ->with(compact('status'));
         }
         else if($dist)
         {
@@ -132,7 +135,8 @@ class OrderController extends Controller
          }
          else
          {
-            return view('third',compact('status'));
+              $vs=$p;
+            return view('third',compact('vs','status'));
          }
     }
     public function data() {

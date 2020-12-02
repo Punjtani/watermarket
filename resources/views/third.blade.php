@@ -138,19 +138,16 @@
            <li>
                 <div class="jumbotron bg-white">
                 <h3 style="background-color:lightgreen;width:250px">Basic Information</h3>
-                   @if ($vs ?? null)
-
+                {{-- @foreach ($vs as $item)
+                   {{dump($item)}}
+                @endforeach
+                 {{dd("f")}} --}}
+                   @if (($vs ?? null) ?? ($vs1 ?? null))
                    <h4>
-                      Name: {{$vs->name ?? null}} <br>
-                      email: {{$vs->email ?? null}} <br>
-                      phone: {{$vs->phone ?? null}} <br>
+                    <b>  Name</b>: {{$vs->name ?? $vs1->name ?? null}} <br>
+                      <b>email</b>: {{$vs->email ?? $vs1->email ?? null}} <br>
+                     <b> phone</b>: {{$vs->phone ?? $vs1->phone ?? null}} <br>
                        </h4>
-                   @else
-                   <h4>
-                    Name: {{$vs->name ?? null}} <br>
-                    email: {{$vs->email ?? null}} <br>
-                    phone: {{$vs->phone ?? null}} <br>
-                     </h4>
                      @endif
 
                 </div>
@@ -163,8 +160,6 @@
                                 Detail Information</h3></div>
                             <div class="col-8">
                                 <span>
-
-
 
              @if ($status)
              <input type="radio" id="male" style="margin-left:45%"  name="gender" value="Active" checked>
@@ -185,24 +180,16 @@
                         </div>
                         </div>
                     </div>
-                    @if ($vs1 ?? null)
+                    @if (($vs1 ?? null) ?? ($vs ?? null))
                     <h4>
-                     About: {{$vs1->address }} <br>
-                     Nationality: {{$vs1->nationality }} <br>
-                     ID Number: {{$vs1->id_number}} <br>
-                     Address: {{$vs1->address}} <br>
-                     IBAN: {{$vs1->iban }} <br>
-                     DOB :{{$vs1->dob}} <br>
-                     {{-- Status: {{$v->user_status ?? null}} --}}
-                     </h4>
-                    @else
-                    <h4>
-                     About: {{$vs1->address ?? null}} <br>
-                     Nationality: {{$vs1->nationality ?? null}} <br>
-                     ID Number: {{$vs1->id_number ?? null}} <br>
-                     Address: {{$vs1->address ?? null}} <br>
-                     IBAN: {{$vs1->iban ?? null}} <br>
-                     DOB :{{$vs1->dob ?? null}} <br>
+
+                     <b>About</b>: {{$vs1->about ?? $vs->about ?? null}} <br>
+                    <b> Nationality</b>: {{$vs1->nationality ?? $vs->nationality ?? null}} <br>
+                     <b>ID Number</b>: {{$vs1->id_number ?? $vs->id_number ?? null}} <br>
+                     <b>Address</b>: {{$vs1->address ?? $vs->address ?? null}} <br>
+                     <b>Service Type:</b>: {{trim($vs->service_type??$vs1->service_type??null,'[]') ?? null}} <br>
+                     <b>IBAN</b>: {{$vs1->iban ?? $vs->iban ?? null}} <br>
+                     <b>DOB </b>:{{$vs1->dob ?? $vs->dob ?? null}} <br>
                      {{-- Status: {{$v->user_status ?? null}} --}}
                      </h4>
                     @endif

@@ -138,19 +138,13 @@
            <li>
                 <div class="jumbotron bg-white">
                 <h3 style="background-color:lightgreen;width:250px">Basic Information</h3>
-                   <?php if($vs ?? null): ?>
-
+                
+                   <?php if(($vs ?? null) ?? ($vs1 ?? null)): ?>
                    <h4>
-                      Name: <?php echo e($vs->name ?? null); ?> <br>
-                      email: <?php echo e($vs->email ?? null); ?> <br>
-                      phone: <?php echo e($vs->phone ?? null); ?> <br>
+                    <b>  Name</b>: <?php echo e($vs->name ?? $vs1->name ?? null); ?> <br>
+                      <b>email</b>: <?php echo e($vs->email ?? $vs1->email ?? null); ?> <br>
+                     <b> phone</b>: <?php echo e($vs->phone ?? $vs1->phone ?? null); ?> <br>
                        </h4>
-                   <?php else: ?>
-                   <h4>
-                    Name: <?php echo e($vs->name ?? null); ?> <br>
-                    email: <?php echo e($vs->email ?? null); ?> <br>
-                    phone: <?php echo e($vs->phone ?? null); ?> <br>
-                     </h4>
                      <?php endif; ?>
 
                 </div>
@@ -163,8 +157,6 @@
                                 Detail Information</h3></div>
                             <div class="col-8">
                                 <span>
-
-
 
              <?php if($status): ?>
              <input type="radio" id="male" style="margin-left:45%"  name="gender" value="Active" checked>
@@ -185,24 +177,16 @@
                         </div>
                         </div>
                     </div>
-                    <?php if($vs1 ?? null): ?>
+                    <?php if(($vs1 ?? null) ?? ($vs ?? null)): ?>
                     <h4>
-                     About: <?php echo e($vs1->address); ?> <br>
-                     Nationality: <?php echo e($vs1->nationality); ?> <br>
-                     ID Number: <?php echo e($vs1->id_number); ?> <br>
-                     Address: <?php echo e($vs1->address); ?> <br>
-                     IBAN: <?php echo e($vs1->iban); ?> <br>
-                     DOB :<?php echo e($vs1->dob); ?> <br>
-                     
-                     </h4>
-                    <?php else: ?>
-                    <h4>
-                     About: <?php echo e($vs1->address ?? null); ?> <br>
-                     Nationality: <?php echo e($vs1->nationality ?? null); ?> <br>
-                     ID Number: <?php echo e($vs1->id_number ?? null); ?> <br>
-                     Address: <?php echo e($vs1->address ?? null); ?> <br>
-                     IBAN: <?php echo e($vs1->iban ?? null); ?> <br>
-                     DOB :<?php echo e($vs1->dob ?? null); ?> <br>
+
+                     <b>About</b>: <?php echo e($vs1->about ?? $vs->about ?? null); ?> <br>
+                    <b> Nationality</b>: <?php echo e($vs1->nationality ?? $vs->nationality ?? null); ?> <br>
+                     <b>ID Number</b>: <?php echo e($vs1->id_number ?? $vs->id_number ?? null); ?> <br>
+                     <b>Address</b>: <?php echo e($vs1->address ?? $vs->address ?? null); ?> <br>
+                     <b>Service Type:</b>: <?php echo e(trim($vs->service_type??$vs1->service_type??null,'[]') ?? null); ?> <br>
+                     <b>IBAN</b>: <?php echo e($vs1->iban ?? $vs->iban ?? null); ?> <br>
+                     <b>DOB </b>:<?php echo e($vs1->dob ?? $vs->dob ?? null); ?> <br>
                      
                      </h4>
                     <?php endif; ?>
