@@ -64,10 +64,18 @@ class OrderController extends Controller
     $body = $response->getBody()->getContents();
        $us=json_decode($body);
          $users=$us->users;
-         $status=$users[$id]->user_status;
-            $dist=$users[$id]->distributor;
-            $dist1=$users[$id]->representative;
-        //  $post_data=$id;
+         foreach($users as $p)
+         {
+             if($p->buyer==$id)
+             {
+             $status=$p->user_status;
+             $dist=$p->distributor;
+             $dist1=$p->representative;
+             }
+         }
+
+
+
        if($dist&&$dist1)
        {
         $url='http://80.209.226.8:3000/api/admin/getDistributor';
@@ -126,27 +134,6 @@ class OrderController extends Controller
          {
             return view('third',compact('status'));
          }
-
-
-        //     //  dd($vs1);
-        //     $v=$vs->distributor;
-        //     dump($v);
-        //     // $v2=$vs1->representative;
-        //     // dd($vs);
-        //    if($vs->distributor ?? null)
-        //    {
-        //        $v=$vs->distributor;
-        //     //    dd($v);
-        //        return  view('third',compact('v','status'));
-        //    }
-        //    else
-        //    {
-        //        $v2=$vs1->representative ?? null;
-        //     //    dd($v2);
-        //        return  view('third',compact('v','status'));
-        //    }
-
-
     }
     public function data() {
         $httpClient = new GuzzleClient();

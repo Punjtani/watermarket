@@ -159,7 +159,6 @@
                 <div class="jumbotron bg-white">
                     <div class="container">
                         <div class="row">
-                            {{-- {{dd($status)}} --}}
                             <div class="col-4"><h3 style="background-color:lightgreen;width:250px">
                                 Detail Information</h3></div>
                             <div class="col-8">
@@ -168,15 +167,15 @@
 
 
              @if ($status)
-             <input type="radio" id="male" name="gender" value="Active" checked>
-             <label for="male">Active</label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-             <input type="radio" id="other" name="gender" value="InActive" unchecked>
+             <input type="radio" id="male" style="margin-left:45%"  name="gender" value="Active" checked>
+             <label for="male">Active</label>
+             <input type="radio" id="other" name="gender" value="InActive" style="margin-left:35%" unchecked>
              <label for="female">Inactive</label>
 
              @else
-             <input type="radio" id="male" name="gender" value="Active" unchecked>
-             <label for="male">Active</label>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
-             <input type="radio" id="other" name="gender" value="InActive" checked>
+             <input type="radio" id="male" style="margin-left:45%"  name="gender" value="Active" unchecked>
+             <label for="male">Active</label>
+             <input type="radio" id="other" style="margin-left:35%"  name="gender" value="InActive" checked>
              <label for="female">Inactive</label>
 
              @endif

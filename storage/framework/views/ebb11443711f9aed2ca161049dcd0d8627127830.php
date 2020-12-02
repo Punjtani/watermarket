@@ -246,7 +246,7 @@
                      </span></td>
                         <td>
                           <div class="sparkbar" data-color="#00a65a" data-height="20">
-                              <?php if($s->user_status): ?>
+                              <?php if($s->user_status=="active"): ?>
                               <i class="fa fa-check-circle" aria-hidden="true" style="color: green"></i>
                               <?php else: ?>
                               <i class="fa fa-exclamation-circle"style="color: red" aria-hidden="true"></i>
