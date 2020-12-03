@@ -71,6 +71,7 @@
  @media (min-width: 340px) and (max-width:400px) {
   .left{margin-left:310%}}
  }
+
    </style>
 </head>
 <body class="hold-transition sidebar-mini" style="overflow-x: hidden">
@@ -156,21 +157,13 @@
                        with font-awesome or any other icon font library -->
                        <a href="#" class="nav-link">
                         <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="myFile" style="color:transparent" name="filename">
                         </button>
                       <p style="text-decoration:underline">Delete</p>
                     </a>
                     <a href="#" class="nav-link">
                         <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            <input type="file" id="myFile" name="filename">
-                        </button>
-                      <p style="text-decoration:underline">Delete</p>
-                    </a>
-
-
-                    <a href="#" class="nav-link">
-                        <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="myFile"  style="color:transparent" name="filename">
                         </button>
                       <p style="text-decoration:underline">Delete</p>
                     </a>
@@ -178,7 +171,7 @@
 
                     <a href="#" class="nav-link">
                         <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="myFile"  style="color:transparent"   name="filename">
                         </button>
                       <p style="text-decoration:underline">Delete</p>
                     </a>
@@ -186,7 +179,15 @@
 
                     <a href="#" class="nav-link">
                         <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
-                            <input type="file" id="myFile" name="filename">
+                            <input type="file" id="myFile"   style="color:transparent" name="filename">
+                        </button>
+                      <p style="text-decoration:underline">Delete</p>
+                    </a>
+
+
+                    <a href="#" class="nav-link">
+                        <button type="file" class="btn btn-default btn-lg" style="border-radius:40px;">
+                            <input type="file" id="myFile"  style="color:transparent"  name="filename">
                         </button>
                       <p style="text-decoration:underline">Delete</p>
                     </a>

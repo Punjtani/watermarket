@@ -234,11 +234,11 @@
                           <?php endif; ?>
                         <td><?php echo e($s->email); ?></td>
                         <td><span class="label label-success">
-                            <?php if($s->distributor&&$s->representative): ?>
+                            <?php if($s->buyer&&$s->distributor&&$s->representative): ?>
                             B D R
-                           <?php elseif($s->representative): ?>
+                           <?php elseif($s->buyer&&$s->representative): ?>
                             B R
-                           <?php elseif($s->distributor): ?>
+                           <?php elseif($s->buyer&&$s->distributor): ?>
                             B D
                             <?php else: ?>
                             B

@@ -54,6 +54,10 @@ class OrderController extends Controller
                   return view('login',['status' => $v->message]);
         }
     }
+    public function status($id,$status)
+    {
+        dd($status);
+    }
     public function represent($id){
         $httpClient = new GuzzleClient();
         $url='http://80.209.226.8:3000/api/admin/getUsers';
@@ -68,8 +72,6 @@ class OrderController extends Controller
          {
              if($p->buyer==$id)
              {
-             $status=$p->user_status;
-
              $dist=$p->distributor ?? null;
              $dist1=$p->representative ?? null;
              break;
@@ -101,9 +103,7 @@ class OrderController extends Controller
                 //  $data=['vs','vs1','status'];
           return  view('third')->with(compact('vs'))
 
-          ->with(compact('vs1'))
-
-          ->with(compact('status'));
+          ->with(compact('vs1'));
         }
         else if($dist)
         {
@@ -117,7 +117,7 @@ class OrderController extends Controller
             $body = $response->getBody()->getContents();
             $ts=json_decode($body);
               $vs=$ts->distributor;
-            return view('third',compact('vs','status'));
+            return view('third',compact('vs'));
         }
          else if($dist1)
          {
@@ -129,14 +129,14 @@ class OrderController extends Controller
             ]);
                 $statusCode1 = $response1->getStatusCode();
                 $body1 = $response1->getBody()->getContents();
-                $vs=json_decode($body1);
-                 $vs1=$vs->representative;
-                return view('third',compact('vs1','status'));
+                $vss=json_decode($body1);
+                 $vs1=$vss->representative;
+                return view('third',compact('vs1'));
          }
          else
          {
-              $vs=$p;
-            return view('third',compact('vs','status'));
+              $vs2=$p;
+            return view('third',compact('vs2'));
          }
     }
     public function data() {
